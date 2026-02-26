@@ -7,7 +7,7 @@ app = FastAPI()
 @app.get("/film")
 def get_films():
     with engine.connect() as connection:
-        result = connection.execute(text("SELECT * FROM film LIMIT 10"))
+        result = connection.execute(text("SELECT * FROM film LIMIT 5"))
         return [dict(row._mapping) for row in result]
 
 
